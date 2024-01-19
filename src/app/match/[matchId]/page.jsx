@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 /**
- * @param params {params: {matchId: string}}
+ * @param params { params: { matchId: string } }
  */
 export default function MatchPage({ params }) {
     const matchId = Number(params.matchId);
@@ -12,7 +12,7 @@ export default function MatchPage({ params }) {
     }
 
     return <>
-        <main>
+        <main className="container">
             Match Page: {matchId}
         </main>
     </>;
