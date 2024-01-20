@@ -27,26 +27,26 @@ export default function MainIcons(props) {
         let href = isTeam+i.id;
         let src = i.icon;
         let alt = i.name;
-        content.push(<Link key={i.id} href={href} className="col">
-                        <Image src={src} width={70} height={70} style={{fontSize:"40px"}} alt={alt}></Image>
-                        <span style={{display:"block"}}>{alt}</span>
-                    </Link>);
+        content.push(<Link key={ i.id } href={ href } className="col">
+            <Image src={ src } width={ 60 } height={ 60 } style={ { fontSize:"40px" } } alt={ alt }></Image>
+            <span style={ { display:"block" } }>{alt}</span>
+        </Link>);
         console.log(content)
         
     }
-    content.push(<Link key={null} href={isTeam} className="col">
-                <i className="bi bi-plus-square" style={{fontSize:"40px"}}></i>
-                <span style={{display:"block"}}>add</span>
-              </Link>)
+    content.push(<Link key={ null } href={ isTeam } className="col">
+        <i className="bi bi-plus-square" style={ { fontSize:"40px" } }></i>
+        <span style={ { display:"block" } }>add</span>
+    </Link>)
     
 
 
     return <>
-        <div onLoad={event=>{
+        <div onLoad={ (event) => {
             event.preventDefault;
             console.log("test");
             favList;
-        }}>
+        } }>
             {info}
         </div>
 
