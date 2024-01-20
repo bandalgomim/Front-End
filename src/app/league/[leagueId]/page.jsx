@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 /**
- * @param params {params: {leagueId: string}}
+ * @param params { params: { leagueId: string } }
  */
 export default function LeaguePage({ params }) {
     const leagueId = Number(params.leagueId);
@@ -12,7 +12,7 @@ export default function LeaguePage({ params }) {
     }
 
     return <>
-        <main>
+        <main className="container">
             League Page: {leagueId}
         </main>
     </>;

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 /**
- * @param params {params: {teamId: string}}
+ * @param params { params: { teamId: string } }
  */
 export default function TeamPage({ params }) {
     const teamId = Number(params.teamId);
@@ -12,7 +12,7 @@ export default function TeamPage({ params }) {
     }
 
     return <>
-        <main>
+        <main className="container">
             Team Page: {teamId}
         </main>
     </>;

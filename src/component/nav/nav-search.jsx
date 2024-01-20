@@ -2,12 +2,15 @@
 
 export default function NavSearch() {
     return <form className="d-flex" role="search">
-        <button className="btn btn-outline-success" type="submit"
-            style={ {paddingRight: "9em"} }>
+        <button
+            className="btn btn-outline-dark"
+            style={ { paddingRight: "9em" } } type="button"
+            data-bs-toggle="modal" data-bs-target="#search-modal"
+        >
             <i className="bi bi-search"
-                style={ {paddingRight: "0.5em"} }
+                style={ { paddingRight: "0.5em" } }
             ></i>
-            Search
+            검색
         </button>
     </form>;
 }

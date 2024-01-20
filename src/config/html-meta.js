@@ -1,10 +1,10 @@
 /**
- * @typedef {{title: string, description: string}} HTMLMetadata
+ * @typedef { { title: string, description: string } } HTMLMetadata
  */
 
 /**
  * HTML Metadata for Next.js `export const metadata`
- * @type {HTMLMetadata}
+ * @type { HTMLMetadata }
  */
 const defaultMetadata = {
     title: "Ezports",
@@ -13,7 +13,7 @@ const defaultMetadata = {
 
 /**
  * Generate HTML Metadata for Next.js `export function generateMetadata()`
- * @returns {HTMLMetadata}
+ * @returns { HTMLMetadata }
  */
 function getDefaultMetadata() {
     return defaultMetadata;
