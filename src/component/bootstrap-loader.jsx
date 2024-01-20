@@ -1,6 +1,6 @@
 "use client";
-import jQuery from "jquery";
-window.jQuery = jQuery;
+/*import jQuery from "jquery";
+window.jQuery = jQuery;*/
 
 import { useEffect } from "react";
 

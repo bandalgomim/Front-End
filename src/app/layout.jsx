@@ -11,6 +11,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="ko">
             <BootstrapLoader/>
+            
             <body>
                 <Nav/>
                 {children}
