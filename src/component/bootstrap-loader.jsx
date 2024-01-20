@@ -1,6 +1,4 @@
 "use client";
-/*import jQuery from "jquery";
-window.jQuery = jQuery;*/
 
 import { useEffect } from "react";
 
@@ -14,6 +12,7 @@ import { useEffect } from "react";
 export default function BootstrapLoader() {
     useEffect(() => {
         require("bootstrap/dist/css/bootstrap.min.css");
+        require("bootstrap/dist/js/bootstrap.bundle.min.js");
     }, [])
     return <></>;
 }

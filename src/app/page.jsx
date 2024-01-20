@@ -1,5 +1,7 @@
 "use client"
 
+import { useEffect } from "react"
+
 import T1 from "./t1icon.svg"
 import GenG from "./GenGicon.svg"
 import manU from "./manU.svg"
