@@ -23,7 +23,7 @@ const leagueList = [
     { id:0, name:"EPL", sportId:0, icon: "/img/EPL.svg" },
     { id:1, name:"Leaue1", sportId:0, icon: "/img/리그앙.svg" },
     { id:2, name:"K리그", sportId:0, icon: "/img/League.svg" },
-    { id:"", name:"TempLeague", sportId:0, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:0, icon: "/img/League.svg" },
     { id:2, name:"TempLeague", sportId:0, icon: "/img/League.svg" },
     { id:2, name:"TempLeague", sportId:0, icon: "/img/League.svg" },
     { id:2, name:"TempLeague", sportId:0, icon: "/img/League.svg" },
