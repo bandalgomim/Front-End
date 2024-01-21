@@ -23,12 +23,30 @@ const leagueList = [
     { id:0, name:"EPL", sportId:0, icon: "/img/EPL.svg" },
     { id:1, name:"Leaue1", sportId:0, icon: "/img/리그앙.svg" },
     { id:2, name:"K리그", sportId:0, icon: "/img/League.svg" },
+    { id:"", name:"TempLeague", sportId:0, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:0, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:0, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:0, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:0, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:0, icon: "/img/League.svg" },
     { id:3, name:"KB0", sportId:1, icon: "/img/League.svg"  },
     { id:4, name:"MLB", sportId:1, icon: "/img/League.svg"  },
     { id:5, name:"NPB", sportId:1, icon: "/img/League.svg"  },
+    { id:2, name:"TempLeague", sportId:1, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:1, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:1, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:1, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:1, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:1, icon: "/img/League.svg" },
     { id:6, name:"LCK", sportId:2, icon: "/img/LCK.svg" },
     { id:7, name:"LPL", sportId:2, icon: "/img/League.svg"  },
-    { id:8, name:"LEC", sportId:2, icon: "/img/League.svg"  }
+    { id:8, name:"LEC", sportId:2, icon: "/img/League.svg"  },
+    { id:2, name:"TempLeague", sportId:2, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:2, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:2, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:2, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:2, icon: "/img/League.svg" },
+    { id:2, name:"TempLeague", sportId:2, icon: "/img/League.svg" }
 ]
 
 const teamList = [
@@ -85,8 +103,8 @@ export default function SportCollapse(props) {
         collapseList.push(
             <div key={ i } className="collapse" id={ target }>
                 <div className="card card-body">
-                    <IconList tag="소속 리그" info="league" fav={ false } favThings={ tempLeagueList }/>
-                    <IconList tag="소속 팀" info="team" fav={ false } favThings={ tempTeamList }/>
+                    <IconList tag="소속 리그" info="league" favThings={ tempLeagueList }/>
+                    <IconList tag="소속 팀" info="team" favThings={ tempTeamList }/>
                     
                 </div>
             </div>

@@ -25,8 +25,8 @@ export default function IndexPage() {
     return <>
         <main className="container">
             
-            <IconList tag="선호 팀" info="team" fav={ true } favThings={ teams }/>
-            <IconList tag="선호 리그" info="league" fav= { true } favThings={ league }/>
+            <IconList tag="선호 팀" info="team" favThings={ teams }/>
+            <IconList tag="선호 리그" info="league" favThings={ league }/>
             
         </main>
     </>;

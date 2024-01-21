@@ -8,8 +8,6 @@ export default function IconList(props) {
 
     const tag = props.tag;
     const info = props.info
-    const fav = props.fav;
-    
     const [ favThings, setFavThings ] = useState(props.favThings)
     
     let isTeam = null;
@@ -32,17 +30,6 @@ export default function IconList(props) {
             <span style={ { display:"block" } }>{alt}</span>
         </Link>);
     }
-    
-    if(fav) {
-        content.push(<button className="btn btn-outline-dark" type="button" data-bs-toggle="modal" data-bs-target="#search-modal" style={ { width:"90px", height:"90px" } }>
-            <i className="bi bi-plus-square" style={ { fontSize:"40px" } }></i>
-            <span style={ { display:"block" } }>add</span>
-            <SearchModal />
-        </button>)
-    }
-    
-    
-
 
     return <>
         <div >
