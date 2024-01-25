@@ -1,0 +1,15 @@
+@import "materialize-color.scss";
+
+$theme-colors: (
+  "primary": materialize-color("grey", "base"),
+  // "secondary": materialize-color("", ""),
+  // "success": materialize-color("", ""),
+  // "info": materialize-color("", ""),
+  // "warning": materialize-color("", ""),
+  // "danger": materialize-color("", ""),
+  // "light": materialize-color("", ""),
+  "dark": materialize-color("grey", "darken-3")
+);
+
+@import "/node_modules/bootstrap/scss/bootstrap.scss";
+@import "/node_modules/bootstrap-icons/font/bootstrap-icons.scss";
