@@ -1,10 +1,24 @@
 import { notFound } from "next/navigation";
-import MyCalendar from "../myCalender";
+<<<<<<< HEAD
+=======
+import Calendar from "@/component/calendar/calendar";
+
+async function getLeagueMatches(leagueId) {
+
+}
+
+>>>>>>> a86b7750ab62f71e6ae6135bbf6d65383c224fe6
 /**
  * @param params { params: { leagueId: string } }
  */
-export default function LeaguePage({ params }) {
+export default async function LeaguePage({ params }) {
     const leagueId = Number(params.leagueId);
+
+    const matches = await getLeagueMatches(leagueId);
+
+    // TODO: Implement converter (match data to calendar event)
+    // TODO: Implement match filter
+    const events = [];
 
     // show 404 page when wrong league id
     if (isNaN(leagueId)) {
@@ -14,7 +28,10 @@ export default function LeaguePage({ params }) {
     return <>
         <main className="container">
             League Page: {leagueId}
+            <div className="container">
+                <Calendar events={ events }/>
+            </div>
         </main>
-        <MyCalendar/>
+        
     </>;
 }
