@@ -1,13 +1,12 @@
 import { notFound } from "next/navigation";
-<<<<<<< HEAD
-=======
+
+
 import Calendar from "@/component/calendar/calendar";
 
 async function getLeagueMatches(leagueId) {
 
 }
 
->>>>>>> a86b7750ab62f71e6ae6135bbf6d65383c224fe6
 /**
  * @param params { params: { leagueId: string } }
  */
