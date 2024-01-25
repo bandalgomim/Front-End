@@ -5,7 +5,7 @@ import SearchModal from "@/component/nav/search-modal";
 
 export default function Nav() {
     return <>
-        <nav className="navbar grey">
+        <nav className="navbar bg-primary">
             <div className="container">
                 <Link href="/" className="navbar-brand d-flex align-items-center">
                     <div style={ { height: "2rem", width: "2rem", position: "relative" } }>
