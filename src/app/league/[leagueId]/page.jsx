@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-
+import MyCalendar from "../myCalender";
 /**
  * @param params { params: { leagueId: string } }
  */
@@ -15,5 +15,6 @@ export default function LeaguePage({ params }) {
         <main className="container">
             League Page: {leagueId}
         </main>
+        <MyCalendar/>
     </>;
 }
