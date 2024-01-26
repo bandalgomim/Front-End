@@ -6,7 +6,7 @@ import Fade from 'react-bootstrap/Fade';
 import Calendar from './calendar';
 
 export default function CalendarCollapse( { events } ) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [ calendarEvents, setCalendarEvents ] = useState(events)
   return (
     <>
