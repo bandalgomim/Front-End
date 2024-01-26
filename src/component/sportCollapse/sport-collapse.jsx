@@ -112,7 +112,8 @@ export default function SportCollapse(props) {
     }
 
     return <>
+    {collapseList}
         {buttonList}
-        {collapseList}
+        
     </>
 }
