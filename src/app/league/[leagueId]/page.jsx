@@ -23,11 +23,11 @@ export default async function LeaguePage({ params }) {
     // TODO: Implement converter (match data to calendar event)
     // TODO: Implement match filter
     const events = [ { id: "1", title: "test1", start: '2024-01-24' },
-    { id: "2", title: "test2", start: '2024-01-24' },
-    { id: "3", title: "test3", start: '2024-01-25' },
-    { id: "4", title: "test4", start: '2024-01-25' },
-    { id: "5", title: "test5", start: '2024-01-26' },
-    { id: "6", title: "test6", start: '2024-01-26' },
+        { id: "2", title: "test2", start: '2024-01-24' },
+        { id: "3", title: "test3", start: '2024-01-25' },
+        { id: "4", title: "test4", start: '2024-01-25' },
+        { id: "5", title: "test5", start: '2024-01-26' },
+        { id: "6", title: "test6", start: '2024-01-26' }
     ];
     const league = { id:0, name:"LCK", icon: "/img/LCK.svg", info: "This is information 인포메이션 스펠링이 이게 맞나 알게 뭐람" };
     // show 404 page when wrong league id
@@ -55,25 +55,25 @@ export default async function LeaguePage({ params }) {
         { id:28, name:"team 17", leageId:1, sportId:2, icon: "/img/Team.svg" },
         { id:29, name:"team 18", leageId:1, sportId:2, icon: "/img/Team.svg" },
         { id:30, name:"team 19", leageId:1, sportId:2, icon: "/img/Team.svg" }
-        ]
+    ]
     return <>
         <main className="container">
             League Page: {leagueId}
             <div className="container">
 
                 <div>
-                    <div style={{display:"inline-block"}}>
-                        <TLIcon TL={league}/>
+                    <div style={ { display:"inline-block" } }>
+                        <TLIcon TL={ league }/>
                     </div>
-                    <div style={{display:"inline-block"}}>
-                        <TLInfo TL={league}/>
+                    <div style={ { display:"inline-block" } }>
+                        <TLInfo TL={ league }/>
                     </div>
                 </div>
                 <div>
-                    <TLList teams={teams}/>
+                    <TLList teams={ teams }/>
                 </div>
                 <div>
-                    <CalendarCollapse events={events}/>
+                    <CalendarCollapse events={ events }/>
                 </div>
                 
             </div>

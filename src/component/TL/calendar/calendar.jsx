@@ -37,7 +37,7 @@ export default function Calendar(props) {
     
     function dateMatchScheduleSet(dateString) {
         setDateMatchSchedule([])
-        let newCalendarEvents = [...calendarEvents];
+        let newCalendarEvents = [ ...calendarEvents ];
         let tempDateMatchSchedule = [];
         for(let i of newCalendarEvents) {
             if(i.start === dateString) {
@@ -66,9 +66,9 @@ export default function Calendar(props) {
                 router.push(`/match/${id}`);
             } }
             dateClick={ (info) => 
-                // TODO: Implement Date Click Event Handler
-                // (day 클릭시 부트스트랩 모달창 띄우기)
-                {let date=moment(info.date).format('YYYY-MM-DD');
+            // TODO: Implement Date Click Event Handler
+            // (day 클릭시 부트스트랩 모달창 띄우기)
+            { let date=moment(info.date).format('YYYY-MM-DD');
                 dateMatchScheduleSet(date);
                 
                
@@ -82,7 +82,7 @@ export default function Calendar(props) {
         <MyVerticallyCenteredModal
             
             show={ modalShow }
-            test={dateMatchSchedule}
+            test={ dateMatchSchedule }
             onHide={ () => setModalShow(false) }
         />
         

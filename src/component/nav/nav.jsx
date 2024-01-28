@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import NavSearch from "@/component/nav/nav-search";
 import SearchModal from "@/component/nav/search-modal";
+import LoginModal from "./login-modal";
 
 export default function Nav() {
     return <>
@@ -12,12 +13,16 @@ export default function Nav() {
                         <Image src="/logo.svg" fill alt="logo"/>
                     </div>
                     <div style={ { marginLeft: "10px" } }>
-                    Ezports
+                        Ezports
                     </div>
+                </Link>
+                <Link href="/sport">
+                    sport
                 </Link>
                 <NavSearch />
             </div>
         </nav>
         <SearchModal />
+        <LoginModal/>
     </>;
 }

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from 'react';
-import SearchModal from "@/component/nav/search-modal";
+
 export default function IconList(props) {
 
     const tag = props.tag;

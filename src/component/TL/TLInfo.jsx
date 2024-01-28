@@ -1,9 +1,9 @@
 function TLInfo(props) {
     return (
-      <>
-        {props.TL.info}
-      </>
+        <>
+            {props.TL.info}
+        </>
     );
-  }
+}
   
-  export default TLInfo;
+export default TLInfo;
