@@ -1,55 +1,83 @@
 'use client';
 
+import Link from 'next/link';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+import Collapse from 'react-bootstrap/Collapse';
+import { useState } from 'react';
+import Image from 'next/image';
 
-export default function LoginModal() {
-    const collapseElement = document.querySelectorAll('#collapseExample')
+export default function LoginModal(props) {
 
-    return <>
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Launch demo modal
-        </button>
-        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div className="modal-body">
-                        <form>
-                            <div className="form-floating mb-3">
-                                <input onKeyDown={
-                                    e => {
-                                        e.preventDefault();
-                                        if (e.key === 'Enter') {
-                                          console.log("test")
-                                        }
+  const [passwordModal, setPasswordModal] = useState(false);
+  const [isInvalid, setIsInvalid]= useState(false)
+  const [user, setUser] = useState({email:"", password:""});
+  
+  const handleChange = e => {
+    setUser({
+      ...user,
+      [e.target.type]: e.target.value,
+    })
+  }
 
-                                }}type="email" className="form-control" id="floatingInput" placeholder="name@example.com"/>
-                                <label htmlFor="floatingInput">Email address</label>
-                                <button  className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                </button>
-                            </div>
-                            
-                            <div className="collapse" id="collapseExample">
-                                <div className="card card-body">
-                                    <div className="form-floating">
-                                        <input type="password" className="form-control" id="floatingPassword" placeholder="Password"/>
-                                        <label htmlFor="floatingPassword">Password</label>
-                                    </div>
-                                </div>
-                            </div>
-                            
+  function CheckEmail(str){                                                 
+    const reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+    if(!reg_email.test(str)) {                            
+       return false;         
+    }else {                       
+       return true;         
+    }                            
+}
 
-                            <div className="mb-3 form-check">
-                                <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-                                <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                            </div>
-                            <button type="submit" className="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </>;
+  
+  return (<div style={{width:"400px", margin:"auto", marginTop:"200px"}}>
+
+    <h5 style={{textAlign:"center"}}>로그인</h5>
+  <FloatingLabel
+        controlId="floatingInput"
+        label="Email address"
+        className="mb-3"
+      >
+        <Form.Control
+        
+          isInvalid={isInvalid}
+          type="email" placeholder="name@example.com" onChange={handleChange} onKeyDown={e=>{
+          if(e.key == "Enter" && CheckEmail(e.target.value)===true) {
+            console.log("엔터 눌렀다")
+            setIsInvalid(false)
+            setPasswordModal(true)
+            console.log("형식 맞으면 패스워드 뜬다")
+          }else if(e.key == "Enter" && CheckEmail(e.target.value)!==true) {
+            console.log("엔터 눌렀다")
+            setIsInvalid(true)
+            console.log("형식 안 맞음 Invalid다")
+          }
+        }}/>
+        <Form.Control.Feedback type="invalid">
+            이메일 형식을 지키거라
+          </Form.Control.Feedback>
+      </FloatingLabel>
+    
+    
+    <Collapse in={passwordModal}>
+    <FloatingLabel controlId="floatingPassword" label="Password">
+        <Form.Control type="password" placeholder="Password" onChange={handleChange} onKeyDown={e=>{
+          if(e.key == "Enter") {
+              console.log(user)
+              console.log("엔터 누르면 useState로 user정보 저장한다")
+          }
+        }}/>
+      </FloatingLabel>
+    </Collapse>
+    <div style={{width:"400px", margin:"auto",marginTop:"25px", textAlign:"center"}}>
+      <Link href="/" ><p>회원가입</p></Link>
+    </div>
+    <div style={{ margin:"auto",marginTop:"25px", textAlign:"center"}}>
+      <Link href={"/"} style={ {width:"75px", height:"75px"} }><Image src="/img/icons8-apple.svg" width={ 50 } height={ 50 } style={ { fontSize:"40px", margin:"25px" } } alt=''></Image></Link>
+      <Link href={"/"}><Image src="/img/icons8-discord.svg" width={ 50 } height={ 50 } style={ { fontSize:"40px", margin:"25px" } } alt=''></Image></Link>
+      <Link href={"/"}><Image src="/img/icons8-facebook.svg" width={ 50 } height={ 50 } style={ { fontSize:"40px", margin:"25px" } } alt=''></Image></Link>
+      <Link href={"/"}><Image src="/img/icons8-google.svg" width={ 50 } height={ 50 } style={ { fontSize:"40px", margin:"25px" } } alt=''></Image></Link>
+    </div>
+    </div>
+  )
 }
