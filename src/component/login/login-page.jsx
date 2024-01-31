@@ -7,7 +7,7 @@ import Collapse from 'react-bootstrap/Collapse';
 import { useState } from 'react';
 import Image from 'next/image';
 
-export default function LoginModal(props) {
+export default function Login(props) {
 
   const [passwordModal, setPasswordModal] = useState(false);
   const [isInvalid, setIsInvalid]= useState(false)
@@ -43,19 +43,19 @@ export default function LoginModal(props) {
           isInvalid={isInvalid}
           type="email" placeholder="name@example.com" onChange={handleChange} onKeyDown={e=>{
           if(e.key == "Enter" && CheckEmail(e.target.value)===true) {
-            console.log("엔터 눌렀다")
-            setIsInvalid(false)
-            setPasswordModal(true)
-            console.log("형식 맞으면 패스워드 뜬다")
-          }else if(e.key == "Enter" && CheckEmail(e.target.value)!==true) {
-            console.log("엔터 눌렀다")
-            setIsInvalid(true)
-            console.log("형식 안 맞음 Invalid다")
-          }
-        }}/>
+              console.log("엔터 눌렀다")
+              setIsInvalid(false)
+              setPasswordModal(true)
+              console.log("형식 맞으면 패스워드 뜬다")
+            }else if(e.key == "Enter" && CheckEmail(e.target.value)!==true) {
+              console.log("엔터 눌렀다")
+              setIsInvalid(true)
+              console.log("형식 안 맞음 Invalid다")
+            }
+          }}/>
         <Form.Control.Feedback type="invalid">
             이메일 형식을 지키거라
-          </Form.Control.Feedback>
+        </Form.Control.Feedback>
       </FloatingLabel>
     
     

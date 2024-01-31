@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Link from 'next/link';
 
-export default function MyVerticallyCenteredModal(props) {
+export default function CalendarModal(props) {
 
     let dateMatchSchedule = props.test;
 
@@ -17,7 +17,6 @@ export default function MyVerticallyCenteredModal(props) {
             </div>
         )
     }
-    
     return (
         <Modal
             { ...props }
@@ -27,7 +26,7 @@ export default function MyVerticallyCenteredModal(props) {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-            전제 경기 일정
+                    전제 경기 일정
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>

@@ -3,8 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function TLList( { teams } ) {
-    const info = "team"//teams.info
+export default function TLList( { TL } ) {
+    const info = "team"//TL.info
     
     let isTeam = null;
 
@@ -20,9 +20,9 @@ export default function TLList( { teams } ) {
     const collapseContent = [] 
 
 
-    if(teams.length>10) {
-        TLList = teams.slice(0, 10)
-        collapse = teams.slice(10)
+    if(TL.length>10) {
+        TLList = TL.slice(0, 10)
+        collapse = TL.slice(10)
 
         for(let i of collapse) {
             let href = isTeam+i.id;
@@ -35,7 +35,7 @@ export default function TLList( { teams } ) {
         }
 
     }else {
-        TLList = teams;
+        TLList = TL;
         
     }
    
@@ -48,9 +48,6 @@ export default function TLList( { teams } ) {
             <span style={ { display:"block" } }>{alt}</span>
         </Link>);
     }
-
-    console.log(TLList)
-    console.log(collapse)
     
     
 

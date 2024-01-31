@@ -8,10 +8,13 @@ import dayGridPlugin from "@fullcalendar/daygrid"
 import bootstrapPlugin from "@fullcalendar/bootstrap5"
 import interactionPlugin from "@fullcalendar/interaction";
 import { getCalendarConfig } from "@/config/calendar";
-import MyVerticallyCenteredModal from "./calendar-modal"
+import CalendarModal from "./calendar-modal"
 import moment from 'moment';
+import CalendarList from "./calendar-list"
+
 
 function resolveCalendarDateRange() {
+     
     const { validRange } = getCalendarConfig();
     const start = new Date((new Date().valueOf()) - validRange.start);
     const end = new Date((new Date().valueOf()) + validRange.end);
@@ -27,14 +30,27 @@ function resolveCalendarDateRange() {
  * @param props {CalendarProps}
  */
 export default function Calendar(props) {
+    const teams = props.teams;
     const [ modalShow, setModalShow ] = useState(false);
     const [ dateMatchSchedule, setDateMatchSchedule ] = useState([]);
     const router = useRouter();
     const validRange = resolveCalendarDateRange();
     const calendarRef = useRef();
-    
-    const [ calendarEvents, setCalendarEvents ] = useState(props.events);
-    
+    let events = props.events
+
+    for(let i of events) {
+        let team1, team2
+        for(let j of teams) {
+            if(j.id === i.teamId1) team1= j.name;
+            else if(j.id === i.teamId2) team2=j.name
+        }
+
+        let title = `${team1} vs ${team2}`
+        i.title =title;
+        
+    }
+
+    const [ calendarEvents, setCalendarEvents ] = useState(events);
     function dateMatchScheduleSet(dateString) {
         setDateMatchSchedule([])
         let newCalendarEvents = [ ...calendarEvents ];
@@ -45,7 +61,7 @@ export default function Calendar(props) {
             }
         }
         setDateMatchSchedule(tempDateMatchSchedule);
-        console.log(dateMatchSchedule)
+        
     }
 
     return <>
@@ -60,31 +76,25 @@ export default function Calendar(props) {
                 return `${date.getFullYear()}년 ${date.getMonth() + 1}월`;
             } }
             validRange={ validRange }
-            events={ calendarEvents }
+            events={ calendarEvents}
+            eventOrder={"id"}
             eventClick={ (info) => {
                 const { id } = info.event;
                 router.push(`/match/${id}`);
             } }
             dateClick={ (info) => 
-            // TODO: Implement Date Click Event Handler
-            // (day 클릭시 부트스트랩 모달창 띄우기)
-            { let date=moment(info.date).format('YYYY-MM-DD');
-                dateMatchScheduleSet(date);
-                
-               
-                
-                setModalShow(true);
-                
-            }
-
-            }
+                { 
+                    let date=moment(info.date).format('YYYY-MM-DD');
+                    dateMatchScheduleSet(date);
+                    setModalShow(true);
+            } }
         />
-        <MyVerticallyCenteredModal
-            
+        
+        <CalendarModal
             show={ modalShow }
             test={ dateMatchSchedule }
             onHide={ () => setModalShow(false) }
         />
-        
+        <CalendarList match={calendarEvents} teams={props.teams} />
     </>
 }

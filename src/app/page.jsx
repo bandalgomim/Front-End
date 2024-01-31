@@ -7,15 +7,15 @@ import IconList from "@/component/iconList/icon-list";
 
 
 const teams =[
-    { id:1, name:"T1", icon: "/img/t1icon.svg" },
-    { id:2, name:"GEN.G", icon: "/img/GenGicon.svg" },
-    { id:3, name:"MUN", icon: "/img/manU.svg" }
+    { id:0, name:"T1", icon: "/img/LCK/T1.svg" },
+    { id:1, name:"GEN", icon: "/img/LCk/GEN.svg" },
+    { id:2, name:"MUN", icon: "/img/manU.svg" }
 ]
 
 const league = [
     { id:1, name:"LCK", icon: "/img/LCK.svg" },
-    { id:2, name:"EPL", icon: "/img/EPl.svg" },
-    { id:3, name:"Ligue1", icon: "/img/리그앙.svg" }
+    { id:2, name:"LPL", icon: "/img/LPL.webp" },
+    { id:3, name:"WORDS", icon: "/img/WORDS.svg" }
 ]
 
 

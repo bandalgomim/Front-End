@@ -4,7 +4,7 @@
 import { useRouter } from "next/navigation";
 import { Button } from "react-bootstrap";
 
-export default function Login() {
+export default function LoginButton() {
     const router = useRouter();
     return(
         <>

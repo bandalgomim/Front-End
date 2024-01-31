@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import NavSearch from "@/component/nav/nav-search";
 import SearchModal from "@/component/nav/search-modal";
-import Login from "./login";
-import SportButton from "./sportButton";
+import LoginButton from "./login-button";
+import SportButton from "./sport-button";
 
 
 export default function Nav() {
@@ -20,11 +20,9 @@ export default function Nav() {
                         Ezports
                     </div>
                 </Link>
-                
                 <SportButton/>
-                <Login/>
+                <LoginButton/>
                 <NavSearch />
-                
             </div>
         </nav>
         <SearchModal />

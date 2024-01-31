@@ -1,5 +1,5 @@
 "use client"
-import LoginModal from "@/component/nav/login-modal";
+import Login from "@/component/login/login-page";
 
 
 export default function LoginPage() {
@@ -9,7 +9,7 @@ export default function LoginPage() {
             <div>
                 login Page
             </div>
-            <LoginModal/>
+            <Login/>
         </main>
     );
 }
