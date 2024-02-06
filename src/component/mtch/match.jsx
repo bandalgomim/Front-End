@@ -1,25 +1,16 @@
 import Image from "next/image";
 
-export default function Match( { info } ) {
+export default function Match( { data } ) {
 
-    const match = info.match;
-    const league = info.league;
-    const teams = [info.team1, info.team2]
-    let score = [null, null]
-    let state = null;
-    if(match.state===0) {
+    
+    let state;
+    if(data.matchStatus===0) {
         state = "경기 종료"
-        score[0] = match.score[0];
-        score[1] = match.score[1];
-    }else if(match.state===1) {
+    }else if(data.matchStatus===1) {
         state = "경기 중"
-        score[0] = match.socre[0];
-        score[1] = match.score[1];
     }else {
         state = "경기 예정"
     }
-
-    
 
     let content = (
         <>
@@ -29,26 +20,22 @@ export default function Match( { info } ) {
                 </p>
             </div>
             <div>
-                <p>{score[0]}</p>
+                <p>{data.homeTeamScore}</p>
                 <p>vs</p>
-                <p>{score[1]}</p>
+                <p>{data.awayTeamScore}</p>
             </div>
         </>
     )
     
-
-
-    
-    
     return(
         <div>
-            <div>{league.name}</div>
-            <div>{match.start}</div>
+            <div>{data.leagueName}</div>
+            <div>{data.matchDate}</div>
             <div>
                 <div>
-                    <Image src={teams[0].icon} width={100} height={100}></Image>
+                    <Image src={data.homeTeamLogoUrl} width={100} height={100}></Image>
                     <div>
-                        {teams[0].name}
+                        {data.homeTeamName}
                     </div>
                 </div>
                 <div>
@@ -56,9 +43,9 @@ export default function Match( { info } ) {
                 </div>
                 <div>
                     <div>
-                        {teams[1].name}
+                        {data.awayTeamName}
                     </div>
-                    <Image src={teams[1].icon} width={100} height={100}></Image>
+                    <Image src={data.awayTeamLogoUrl} width={100} height={100}></Image>
                 </div>
             </div>
             <div></div>

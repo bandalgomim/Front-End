@@ -29,39 +29,28 @@ function resolveCalendarDateRange() {
 /**
  * @param props {CalendarProps}
  */
-export default function Calendar(props) {
-    const teams = props.teams;
+export default function Calendar( {matches} ) {
+    const router = useRouter();
+    const calendarRef = useRef();
+    const validRange = resolveCalendarDateRange();
     const [ modalShow, setModalShow ] = useState(false);
     const [ dateMatchSchedule, setDateMatchSchedule ] = useState([]);
-    const router = useRouter();
-    const validRange = resolveCalendarDateRange();
-    const calendarRef = useRef();
-    let events = props.events
 
-    for(let i of events) {
-        let team1, team2
-        for(let j of teams) {
-            if(j.id === i.teamId1) team1= j.name;
-            else if(j.id === i.teamId2) team2=j.name
-        }
-
-        let title = `${team1} vs ${team2}`
-        i.title =title;
-        
+    for(let i of matches) {
+        let title = `${i.homeTeamName} vs ${i.awayTeamName}`
+        i.title = title;
+        i.start = i.matchDate;
     }
-
-    const [ calendarEvents, setCalendarEvents ] = useState(events);
+    
     function dateMatchScheduleSet(dateString) {
         setDateMatchSchedule([])
-        let newCalendarEvents = [ ...calendarEvents ];
         let tempDateMatchSchedule = [];
-        for(let i of newCalendarEvents) {
+        for(let i of matches) {
             if(i.start === dateString) {
                 tempDateMatchSchedule.push(i)
             }
         }
         setDateMatchSchedule(tempDateMatchSchedule);
-        
     }
 
     return <>
@@ -76,7 +65,7 @@ export default function Calendar(props) {
                 return `${date.getFullYear()}년 ${date.getMonth() + 1}월`;
             } }
             validRange={ validRange }
-            events={ calendarEvents}
+            events={ matches }
             eventOrder={"id"}
             eventClick={ (info) => {
                 const { id } = info.event;
@@ -89,12 +78,11 @@ export default function Calendar(props) {
                     setModalShow(true);
             } }
         />
-        
         <CalendarModal
             show={ modalShow }
             test={ dateMatchSchedule }
             onHide={ () => setModalShow(false) }
         />
-        <CalendarList match={calendarEvents} teams={props.teams} />
+        <CalendarList matches={ matches }/>
     </>
 }

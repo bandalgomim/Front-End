@@ -5,11 +5,12 @@ import SportCollapse from "@/component/sportCollapse/sport-collapse";
 // 2. 스포츠 페이지의 종목을 컴포넌트화 하기
 // 3. 끝난다음 PR 보내보기
 
-const sportList = [
-    { id:0, name:"축구" },
-    { id:1, name:"야구" },
-    { id:2, name:"LOL" }
-]
+/*"data": [{ 
+    "id": Int,
+    "name": String,
+    "imageUrl": String
+}]
+*/
 
 
 export default function SportPage() {
@@ -19,7 +20,7 @@ export default function SportPage() {
             <div>
                 Sport Page
             </div>
-            <SportCollapse sportList={ sportList }/>
+            <SportCollapse sportList={ data }/>
         </main>
     );
 }

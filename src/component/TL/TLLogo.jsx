@@ -1,14 +1,12 @@
-import Figure from 'react-bootstrap/Figure';
 import Image from 'next/image';
 
-
-function TLIcon(props) {
+function TLIcon({name, logo}) {
     return (
         <Image
             width={ 171 }
             height={ 180 }
-            alt={ props.TL.name }
-            src={ props.TL.icon }
+            alt={ name }
+            src={ logo }
         />
     );
 }

@@ -1,7 +1,7 @@
-function TLInfo(props) {
+function TLInfo( {information} ) {
     return (
         <>
-            {props.TL.info}
+            {information}
         </>
     );
 }

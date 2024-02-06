@@ -5,10 +5,10 @@ import Button from 'react-bootstrap/Button';
 import Fade from 'react-bootstrap/Fade';
 import Calendar from './calendar';
 
-export default function CalendarCollapse( { events, teams } ) {
+export default function CalendarCollapse( { matches} ) {
 
     const [ open, setOpen ] = useState(true);
-    const [ calendarEvents, setCalendarEvents ] = useState(events)
+    
     return (
         <>
             <Button
@@ -20,7 +20,7 @@ export default function CalendarCollapse( { events, teams } ) {
             </Button>
             <Fade in={ open }>
                 <div id="example-fade-text">
-                    <Calendar events={ calendarEvents } teams = { teams }/>
+                    <Calendar matches={ matches }/>
                 </div>
             </Fade>
 

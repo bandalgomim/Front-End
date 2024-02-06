@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getTeamPage } from "@/component/temp-database";
 import CalendarCollapse from "@/component/TL/calendar/calendar-collapse";
-import TLIcon from "@/component/TL/TLIcon";
+import TLIcon from "@/component/TL/TLLogo";
 import TLInfo from "@/component/TL/TLInfo";
 import TLList from "@/component/TL/TLList";
 /**
@@ -16,6 +16,31 @@ export default function TeamPage({ params }) {
     if (isNaN(teamId)) {
         return notFound();
     }
+
+    /*
+    	"data": {
+		"id": Int,
+        "teamName": String,
+		"information": String,
+		"logoUrl": String,
+		"leagues": [{
+				"id": Int,
+				"name": string,
+				"logoUrl": String
+		}],
+		"matches": [{
+			"id": Int,
+			"homeTeamName": String,
+			"awayTeamName": String,
+			"matchDate": DateTime,
+			"homeTeamScore": Int,
+            "awayTeamScore": Int,
+			"homeTeamLogoUrl": String,
+            "awayTeamLogoUrl": String,
+			"matchStatus": String,
+		}],					
+	}
+    */
     
     const info = getTeamPage(teamId)
 
@@ -26,17 +51,17 @@ export default function TeamPage({ params }) {
         <div className="container">
             <div>
                 <div style={ { display:"inline-block" } }>
-                    <TLIcon TL={ info.teams[0] }/>
+                    <TLIcon name={ data.teamName } icon={ data.logoUrl }/>
                 </div>
                 <div style={ { display:"inline-block" } }>
-                    <TLInfo TL={ info.teams[0] }/>
+                    <TLInfo information={ data.information }/>
                 </div>
             </div>
             <div>
-                <TLList TL ={ info.leagues }/>
+                <TLList TL ={ data.leagues }/>
             </div>
             <div>
-                <CalendarCollapse events={ info.match } teams={info.teams}/>
+                <CalendarCollapse matches={ data.matchs }/>
             </div>
         </div>
     </>;
