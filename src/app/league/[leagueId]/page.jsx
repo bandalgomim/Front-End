@@ -67,8 +67,8 @@ export default async function LeaguePage({ params }) {
             "homeTeamLogoUrl": "/img/LCK/T1.svg",
             "awayTeamLogoUrl": "/img/LCK/GEN.svg",
 			"matchStatus": 0,
-		},
-        {
+		    },
+            {
             "id": "2",
 			"homeTeamName": "T1",
 			"awayTeamName": "GEN",
@@ -78,9 +78,8 @@ export default async function LeaguePage({ params }) {
             "homeTeamLogoUrl": "/img/LCK/T1.svg",
             "awayTeamLogoUrl": "/img/LCK/GEN.svg",
 			"matchStatus": 0,
-		}
-    
-    ],					
+		    }
+        ]				
 	}
     
     const info = getLeaguePage(leagueId)
