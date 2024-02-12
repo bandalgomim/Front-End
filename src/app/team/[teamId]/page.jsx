@@ -43,39 +43,39 @@ export default function TeamPage({ params }) {
     */
     
     const data = {
-		"id": 1,
-		"teamName": "T1",
-		"information": "This is T1",
-		"logoUrl": "/img/LCK/T1.svg",
-		"leagues": [
+        "id": 1,
+        "teamName": "T1",
+        "information": "This is T1",
+        "logoUrl": "/img/LCK/T1.svg",
+        "leagues": [
             { id:1, name:"LCK", logoUrl: "/img/LCK.svg" },
-            { id:2, name:"WORLDS", logoUrl: "/img/WORLDS.svg" },
+            { id:2, name:"WORLDS", logoUrl: "/img/WORLDS.svg" }
             
         ],
-		"matches": [{
+        "matches": [ {
             "id": "1",
-			"homeTeamName": "T1",
-			"awayTeamName": "GEN",
-			"matchDate": '2024-02-17',
-			"homeTeamScore": 1,
+            "homeTeamName": "T1",
+            "awayTeamName": "GEN",
+            "matchDate": '2024-02-17',
+            "homeTeamScore": 1,
             "awayTeamScore": 2,
             "homeTeamLogoUrl": "/img/LCK/T1.svg",
             "awayTeamLogoUrl": "/img/LCK/GEN.svg",
-			"matchStatus": 0,
+            "matchStatus": 0
 		    },
-            {
+        {
             "id": "2",
-			"homeTeamName": "T1",
-			"awayTeamName": "LNG",
-			"matchDate": '2024-02-29',
-			"homeTeamScore": 3,
+            "homeTeamName": "T1",
+            "awayTeamName": "LNG",
+            "matchDate": '2024-02-29',
+            "homeTeamScore": 3,
             "awayTeamScore": 0,
             "homeTeamLogoUrl": "/img/LCK/T1.svg",
             "awayTeamLogoUrl": "/img/LPL/LNG.svg",
-			"matchStatus": 0,
+            "matchStatus": 0
 		    }
         ]				
-	}
+    }
 
     const info = getTeamPage(teamId)
 

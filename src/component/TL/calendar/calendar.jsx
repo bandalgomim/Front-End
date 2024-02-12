@@ -29,7 +29,7 @@ function resolveCalendarDateRange() {
 /**
  * @param props {CalendarProps}
  */
-export default function Calendar( {matches} ) {
+export default function Calendar( { matches } ) {
     const router = useRouter();
     const calendarRef = useRef();
     const validRange = resolveCalendarDateRange();
@@ -66,16 +66,16 @@ export default function Calendar( {matches} ) {
             } }
             validRange={ validRange }
             events={ matches }
-            eventOrder={"id"}
+            eventOrder={ "id" }
             eventClick={ (info) => {
                 const { id } = info.event;
                 router.push(`/match/${id}`);
             } }
             dateClick={ (info) => 
-                { 
-                    let date=moment(info.date).format('YYYY-MM-DD');
-                    dateMatchScheduleSet(date);
-                    setModalShow(true);
+            { 
+                let date=moment(info.date).format('YYYY-MM-DD');
+                dateMatchScheduleSet(date);
+                setModalShow(true);
             } }
         />
         <CalendarModal

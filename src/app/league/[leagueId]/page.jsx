@@ -31,11 +31,11 @@ export default async function LeaguePage({ params }) {
     
     
     const data = {
-		"id": 1,
-		"leagueName": "LCK",
-		"information": "This is LCK",
-		"logoUrl": "/img/LCK.svg",
-		"teams": [
+        "id": 1,
+        "leagueName": "LCK",
+        "information": "This is LCK",
+        "logoUrl": "/img/LCK.svg",
+        "teams": [
             { id:0, name:"T1", logoUrl: "/img/LCK/T1.svg" },
             { id:1, name:"GEN", logoUrl: "/img/LCK/GEN.svg" },
             { id:2, name:"KT", logoUrl: "/img/LCK/KT.svg" },
@@ -55,32 +55,32 @@ export default async function LeaguePage({ params }) {
             { id:16, name:"team 17", logoUrl: "/img/Team.svg" },
             { id:17, name:"team 18", logoUrl: "/img/Team.svg" },
             { id:18, name:"team 19", logoUrl: "/img/Team.svg" },
-            { id:19, name:"team 18", logoUrl: "/img/Team.svg" },
+            { id:19, name:"team 18", logoUrl: "/img/Team.svg" }
         ],
-		"matches": [{
+        "matches": [ {
             "id": "1",
-			"homeTeamName": "T1",
-			"awayTeamName": "GEN",
-			"matchDate": '2024-02-17',
-			"homeTeamScore": 1,
+            "homeTeamName": "T1",
+            "awayTeamName": "GEN",
+            "matchDate": '2024-02-17',
+            "homeTeamScore": 1,
             "awayTeamScore": 2,
             "homeTeamLogoUrl": "/img/LCK/T1.svg",
             "awayTeamLogoUrl": "/img/LCK/GEN.svg",
-			"matchStatus": 0,
+            "matchStatus": 0
 		    },
-            {
+        {
             "id": "2",
-			"homeTeamName": "T1",
-			"awayTeamName": "GEN",
-			"matchDate": '2024-02-18',
-			"homeTeamScore": 1,
+            "homeTeamName": "T1",
+            "awayTeamName": "GEN",
+            "matchDate": '2024-02-18',
+            "homeTeamScore": 1,
             "awayTeamScore": 2,
             "homeTeamLogoUrl": "/img/LCK/T1.svg",
             "awayTeamLogoUrl": "/img/LCK/GEN.svg",
-			"matchStatus": 0,
+            "matchStatus": 0
 		    }
         ]				
-	}
+    }
     
     const info = getLeaguePage(leagueId)
 

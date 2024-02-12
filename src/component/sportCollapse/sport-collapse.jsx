@@ -14,7 +14,7 @@ import { useState } from "react"
     }]
 }*/
 
-export default function SportCollapse( {data} ) {
+export default function SportCollapse( { data } ) {
 
     const [ sportList, setSport ] = useState(data) 
     const buttonList = [];
