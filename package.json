@@ -22,7 +22,6 @@
     "@fullcalendar/react": "^6.1.10",
     "@fullcalendar/scrollgrid": "^6.1.10",
     "@fullcalendar/timegrid": "^6.1.10",
-    "@hufs-ezport/api-client": "0.0.1",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "5.3.1",
     "bootstrap-icons": "^1.11.3",
