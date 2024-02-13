@@ -17,7 +17,7 @@ export default function MatchPage({ params }) {
         "awayTeamScore": 2,
         "homeTeamLogoUrl": "/img/LCK/T1.svg",
         "awayTeamLogoUrl": "/img/LCK/GEN.svg",
-        "matchStatus": 0
+        "matchStatus": 0,
     }
     // show 404 page when wrong league id
     if (isNaN(matchId)) {
@@ -28,6 +28,6 @@ export default function MatchPage({ params }) {
         <main className="container">
             Match Page: {matchId}
         </main>
-        <Match data = { data }/>
+        <Match data = {data}/>
     </>;
 }

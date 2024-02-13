@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Fade from 'react-bootstrap/Fade';
 import Calendar from './calendar';
 
-export default function CalendarCollapse( { matches } ) {
+export default function CalendarCollapse( { matches} ) {
 
     const [ open, setOpen ] = useState(true);
     
