@@ -12,15 +12,26 @@ import SportCollapse from "@/component/sportCollapse/sport-collapse";
 }]
 */
 
+const sampleData = [
+    {id: 1, name: "S1", imageUrl:"#"},
+    {id: 2, name: "S2", imageUrl:"#"},
+    {id: 3, name: "S3", imageUrl:"#"},
+    {id: 4, name: "S4", imageUrl:"#"}
+];
 
-export default function SportPage() {
+export async function getSports() {
+    return sampleData;
+}
+
+export default async function SportPage() {
+    const sports = await getSports();
     
     return (
         <main>
             <div>
                 Sport Page
             </div>
-            <SportCollapse sportList={ data }/>
+            <SportCollapse sports={ sports }/>
         </main>
     );
 }

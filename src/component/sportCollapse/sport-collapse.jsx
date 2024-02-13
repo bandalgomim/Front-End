@@ -1,3 +1,4 @@
+"use client";
 import IconList from "@/component/iconList/icon-list"
 import { useState } from "react"
 
@@ -14,12 +15,44 @@ import { useState } from "react"
     }]
 }*/
 
-export default function SportCollapse( { data } ) {
+export async function getSportData(id) {
+    return {
+        teams: [{id: 1, name: "T1", logoUrl:"#"}],
+        leagues: [{id: 1, name: "L1", logoUrl: "#"}]
+    }
+}
 
-    const [ sportList, setSport ] = useState(data) 
-    const buttonList = [];
-    const collapseList = []
+export default function SportCollapse( { sports } ) {
+    const [cachedSport, setCachedSport] = useState([]);
 
+    const buttonOnClick = async (e) => {
+        const sportId = e.target.dataset.spId;
+        const sportData = await getSportData(sportId);
+
+        const newCache = cachedSport;
+        newCache[sportId] = sportData;
+        setCachedSport(newCache);
+        console.log(cachedSport);
+        console.log(e.target.dataset.bsTarget);
+    }
+
+    const buttonList = sports.map((sport, i) => <p key={i} className="d-inline-flex gap-1">
+        <button className="btn btn-primary" type="button" data-sp-id={sport.id}
+            data-bs-toggle="collapse" data-bs-target={ `#collapse-${i}` } aria-expanded="false" aria-controls="collapse"
+            onClick={buttonOnClick}    
+        >
+            {sport.name}
+        </button>
+    </p>);
+
+    const collapseList = cachedSport.map((sport, i) => <div key={i} className="collapse" id={`collapse-${i}`}>
+        <div className="card card-body">
+           <IconList tag="소속 리그" info="league" TLList={ sport.leagues }/>
+           <IconList tag="소속 팀" info="team" TLList={ sport.teams }/>
+        </div>
+    </div>);
+
+/*
     for(let i = 0; i<sportList.length; i++) {
         let target = "collapseExample"+i;
         buttonList.push(
@@ -40,11 +73,10 @@ export default function SportCollapse( { data } ) {
             </div>
         )
     }
+    */
 
     return <>
         {buttonList}
         {collapseList}
-        
-        
     </>
 }
