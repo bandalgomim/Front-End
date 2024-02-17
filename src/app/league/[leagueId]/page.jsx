@@ -4,6 +4,9 @@ import CalendarCollapse from "@/component/TL/calendar/calendar-collapse";
 import TLLogo from "@/component/TL/TLLogo";
 import TLInfo from "@/component/TL/TLInfo";
 import TLList from "@/component/TL/TLList";
+import TLFavIcon from "@/component/TL/TLFavIcon";
+
+
 
 async function getLeagueMatches(leagueId) {
 
@@ -16,6 +19,9 @@ async function getLeagueMatches(leagueId) {
  * @param params { params: { leagueId: string } }
  */
 export default async function LeaguePage({ params }) {
+
+
+    
     const leagueId = Number(params.leagueId);
 
     //const data = await getLeagueData(leagueId);
@@ -35,6 +41,7 @@ export default async function LeaguePage({ params }) {
 		"leagueName": "LCK",
 		"information": "This is LCK",
 		"logoUrl": "/img/LCK.svg",
+        "favourite": true,
 		"teams": [
             { id:0, name:"T1", logoUrl: "/img/LCK/T1.svg" },
             { id:1, name:"GEN", logoUrl: "/img/LCK/GEN.svg" },
@@ -82,7 +89,14 @@ export default async function LeaguePage({ params }) {
         ]				
 	}
     
+    
+    
+
     const info = getLeaguePage(leagueId)
+
+    
+
+    
 
 
     return <>
@@ -96,6 +110,9 @@ export default async function LeaguePage({ params }) {
                 </div>
                 <div style={ { display:"inline-block" } }>
                     <TLInfo information={ data.information }/>
+                </div>
+                <div style={ { display:"inline-block" } }>
+                    <TLFavIcon favourite={ data.favourite }/>
                 </div>
             </div>
             <div>
