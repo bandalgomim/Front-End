@@ -1,9 +1,12 @@
 import { notFound } from "next/navigation";
-
+import { getLeaguePage } from "@/component/temp-database";
 import CalendarCollapse from "@/component/TL/calendar/calendar-collapse";
-import TLIcon from "@/component/TL/TLIcon";
+import TLLogo from "@/component/TL/TLLogo";
 import TLInfo from "@/component/TL/TLInfo";
 import TLList from "@/component/TL/TLList";
+import TLFavIcon from "@/component/TL/TLFavIcon";
+
+
 
 async function getLeagueMatches(leagueId) {
 
@@ -16,68 +19,108 @@ async function getLeagueMatches(leagueId) {
  * @param params { params: { leagueId: string } }
  */
 export default async function LeaguePage({ params }) {
+
+
+    
     const leagueId = Number(params.leagueId);
 
-    const matches = await getLeagueMatches(leagueId);
+    //const data = await getLeagueData(leagueId);
 
     // TODO: Implement converter (match data to calendar event)
     // TODO: Implement match filter
-    const events = [ { id: "1", title: "test1", start: '2024-01-24' },
-        { id: "2", title: "test2", start: '2024-01-24' },
-        { id: "3", title: "test3", start: '2024-01-25' },
-        { id: "4", title: "test4", start: '2024-01-25' },
-        { id: "5", title: "test5", start: '2024-01-26' },
-        { id: "6", title: "test6", start: '2024-01-26' }
-    ];
-    const league = { id:0, name:"LCK", icon: "/img/LCK.svg", info: "This is information 인포메이션 스펠링이 이게 맞나 알게 뭐람" };
+    
+    
     // show 404 page when wrong league id
     if (isNaN(leagueId)) {
         return notFound();
     }
-    const teams = [
-        { id:17, name:"team 00", leageId:1, sportId:1, icon: "/img/Team.svg" },
-        { id:18, name:"T1", leageId:1, sportId:2, icon: "/img/t1icon.svg" },
-        { id:19, name:"GenG", leageId:1, sportId:2, icon: "/img/GenGicon.svg" },
-        { id:20, name:"team 03", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:21, name:"team 04", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:22, name:"team 05", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:23, name:"team 06", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:24, name:"team 07", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:25, name:"team 08", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:26, name:"team 09", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:27, name:"team 10", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:28, name:"team 11", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:29, name:"team 12", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:30, name:"team 13", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:25, name:"team 14", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:26, name:"team 15", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:27, name:"team 16", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:28, name:"team 17", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:29, name:"team 18", leageId:1, sportId:2, icon: "/img/Team.svg" },
-        { id:30, name:"team 19", leageId:1, sportId:2, icon: "/img/Team.svg" }
-    ]
+    
+    
+    const data = {
+		"id": 1,
+		"leagueName": "LCK",
+		"information": "This is LCK",
+		"logoUrl": "/img/LCK.svg",
+        "favourite": true,
+		"teams": [
+            { id:0, name:"T1", logoUrl: "/img/LCK/T1.svg" },
+            { id:1, name:"GEN", logoUrl: "/img/LCK/GEN.svg" },
+            { id:2, name:"KT", logoUrl: "/img/LCK/KT.svg" },
+            { id:3, name:"HLE", logoUrl: "/img/LCK/HLE.svg" },
+            { id:4, name:"DK", logoUrl: "/img/LCK/DK.svg" },
+            { id:5, name:"DRX", logoUrl: "/img/LCK/DRX.svg" },
+            { id:6, name:"FOX", logoUrl: "/img/LCK/FOX.webp" },
+            { id:7, name:"BRO", logoUrl: "/img/LCK/BRO.svg" },
+            { id:8, name:"NS", logoUrl: "/img/LCK/NS.svg" },
+            { id:9, name:"KDF", logoUrl: "/img/LCK/KDF.svg" },
+            { id:10, name:"team 11", logoUrl: "/img/Team.svg" },
+            { id:11, name:"team 12", logoUrl: "/img/Team.svg" },
+            { id:12, name:"team 13", logoUrl: "/img/Team.svg" },
+            { id:13, name:"team 14", logoUrl: "/img/Team.svg" },
+            { id:14, name:"team 15", logoUrl: "/img/Team.svg" },
+            { id:15, name:"team 16", logoUrl: "/img/Team.svg" },
+            { id:16, name:"team 17", logoUrl: "/img/Team.svg" },
+            { id:17, name:"team 18", logoUrl: "/img/Team.svg" },
+            { id:18, name:"team 19", logoUrl: "/img/Team.svg" },
+            { id:19, name:"team 18", logoUrl: "/img/Team.svg" },
+        ],
+		"matches": [{
+            "id": "1",
+			"homeTeamName": "T1",
+			"awayTeamName": "GEN",
+			"matchDate": '2024-02-17',
+			"homeTeamScore": 1,
+            "awayTeamScore": 2,
+            "homeTeamLogoUrl": "/img/LCK/T1.svg",
+            "awayTeamLogoUrl": "/img/LCK/GEN.svg",
+			"matchStatus": 0,
+		    },
+            {
+            "id": "2",
+			"homeTeamName": "T1",
+			"awayTeamName": "GEN",
+			"matchDate": '2024-02-18',
+			"homeTeamScore": 1,
+            "awayTeamScore": 2,
+            "homeTeamLogoUrl": "/img/LCK/T1.svg",
+            "awayTeamLogoUrl": "/img/LCK/GEN.svg",
+			"matchStatus": 0,
+		    }
+        ]				
+	}
+    
+    
+    
+
+    const info = getLeaguePage(leagueId)
+
+    
+
+    
+
+
     return <>
         <main className="container">
             League Page: {leagueId}
-            <div className="container">
-
-                <div>
-                    <div style={ { display:"inline-block" } }>
-                        <TLIcon TL={ league }/>
-                    </div>
-                    <div style={ { display:"inline-block" } }>
-                        <TLInfo TL={ league }/>
-                    </div>
-                </div>
-                <div>
-                    <TLList teams={ teams }/>
-                </div>
-                <div>
-                    <CalendarCollapse events={ events }/>
-                </div>
-                
-            </div>
         </main>
-        
+        <div className="container">
+            <div>
+                <div style={ { display:"inline-block" } }>
+                    <TLLogo name={ data.leagueName } logo={ data.logoUrl }/>
+                </div>
+                <div style={ { display:"inline-block" } }>
+                    <TLInfo information={ data.information }/>
+                </div>
+                <div style={ { display:"inline-block" } }>
+                    <TLFavIcon favourite={ data.favourite }/>
+                </div>
+            </div>
+            <div>
+                <TLList TL ={ data.teams }/>
+            </div>
+            <div>
+                <CalendarCollapse matches={ data.matches }/>
+            </div>
+        </div>
     </>;
 }
