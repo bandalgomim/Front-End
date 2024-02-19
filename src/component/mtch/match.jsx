@@ -33,7 +33,7 @@ export default function Match( { data } ) {
             <div>{data.matchDate}</div>
             <div>
                 <div>
-                    <Image src={data.homeTeamLogoUrl} width={100} height={100}></Image>
+                    <Image src={ data.homeTeamLogoUrl } width={ 100 } height={ 100 } alt={ data.homeTeamName }></Image>
                     <div>
                         {data.homeTeamName}
                     </div>
@@ -45,7 +45,7 @@ export default function Match( { data } ) {
                     <div>
                         {data.awayTeamName}
                     </div>
-                    <Image src={data.awayTeamLogoUrl} width={100} height={100}></Image>
+                    <Image src={ data.awayTeamLogoUrl } width={ 100 } height={ 100 } alt={ data.awayTeamName }></Image>
                 </div>
             </div>
             <div></div>

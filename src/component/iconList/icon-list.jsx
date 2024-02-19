@@ -19,7 +19,7 @@ export default function IconList(props) {
     }
     
     let content = [];
-    let newList = [ ...TLList ];
+   
 
     for(let i of TLList) {
         let href = isTeam+i.id;

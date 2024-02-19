@@ -1,4 +1,4 @@
-function TLInfo( {information} ) {
+function TLInfo( { information } ) {
     return (
         <>
             {information}

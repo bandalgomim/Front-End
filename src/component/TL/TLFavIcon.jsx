@@ -1,8 +1,8 @@
 "use client"
 import { useState } from "react";
 
-export default function TLFavIcon ( {favourite} ) {
-    const [fav, setFav] = useState(favourite);
+export default function TLFavIcon ( { favourite } ) {
+    const [ fav, setFav ] = useState(favourite);
     let favicon;
     if(fav === true) {
         favicon = <i className="bi bi-star-fill"></i>;
@@ -14,13 +14,13 @@ export default function TLFavIcon ( {favourite} ) {
             setFav(false);
         } else {
             setFav(true);
+        }
     }
-}
 
     return(
         <>
-            <span onClick={changeFav}>
-            {favicon}
+            <span onClick={ changeFav }>
+                {favicon}
             </span>
             
         </>

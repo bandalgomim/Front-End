@@ -1,4 +1,3 @@
-"use client"
 import IconList from "@/component/iconList/icon-list";
 import SportCollapse from "@/component/sportCollapse/sport-collapse";
 // TODO: 1. sports-icons.jsx같은 컴포넌트들을 /src/component/ 폴더로 정리하기
@@ -13,10 +12,10 @@ import SportCollapse from "@/component/sportCollapse/sport-collapse";
 */
 
 const sampleData = [
-    {id: 1, name: "S1", imageUrl:"#"},
-    {id: 2, name: "S2", imageUrl:"#"},
-    {id: 3, name: "S3", imageUrl:"#"},
-    {id: 4, name: "S4", imageUrl:"#"}
+    { id: 1, name: "S1", imageUrl:"#" },
+    { id: 2, name: "S2", imageUrl:"#" },
+    { id: 3, name: "S3", imageUrl:"#" },
+    { id: 4, name: "S4", imageUrl:"#" }
 ];
 
 export async function getSports() {
