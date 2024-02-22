@@ -1,9 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Form from 'react-bootstrap/Form';
-import Collapse from 'react-bootstrap/Collapse';
+import { FloatingLabel, Form, Collapse, Button, InputGroup } from 'react-bootstrap';
+
 import { useState } from 'react';
 import Image from 'next/image';
 
@@ -34,6 +33,7 @@ export default function Login(props) {
     return (<div style={ { width:"400px", margin:"auto", marginTop:"200px" } }>
 
         <h5 style={ { textAlign:"center" } }>로그인</h5>
+        <InputGroup className="mb-3">
         <FloatingLabel
             controlId="floatingInput"
             label="Email address"
@@ -58,7 +58,21 @@ export default function Login(props) {
             이메일 형식을 지키거라
             </Form.Control.Feedback>
         </FloatingLabel>
-    
+        <Button variant="outline-secondary" type="button" onClick={ (e) => {
+                    if(CheckEmail(user.email)===true) {
+                        console.log("엔터 눌렀다")
+                        setIsInvalid(false)
+                        setPasswordModal(true)
+                        console.log("형식 맞으면 패스워드 뜬다")
+                    }else if(CheckEmail(user.email)!==true) {
+                        console.log("엔터 눌렀다")
+                        setIsInvalid(true)
+                        console.log("형식 안 맞음 Invalid다")
+                    }
+                } }>
+        <i className="bi bi-arrow-right-circle"></i>
+        </Button>
+        </InputGroup>
     
         <Collapse in={ passwordModal }>
             <FloatingLabel controlId="floatingPassword" label="Password">
