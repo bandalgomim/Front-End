@@ -1,6 +1,6 @@
 "use client"
 
-import { FloatingLabel, Form, Button, InputGroup, Collapse, Card } from "react-bootstrap";
+import { FloatingLabel, Form, Button, InputGroup, Collapse, Card, Check } from "react-bootstrap";
 import { useState } from "react";
 
 export default function SignUp () {
@@ -12,6 +12,8 @@ export default function SignUp () {
     const [ severCode, setSeverCode ] = useState('1234');
     const [ codeButtonIsInvalid, setCodeButtonIsInvalid ] = useState(true);
     const [ user, setUser ] = useState({ email:"", password:"", nickname:"" });
+    const [ TOSCheck, setTOSCheck] = useState( [ false, false, false ] )
+    const [ allTOSCheck, setAllTOSCheck ] = useState(false);
     
  
     const CheckEmail = (str) => {                                                 
@@ -46,6 +48,27 @@ export default function SignUp () {
         }
     }
     
+    const checkTOS = (e) => {
+        const idx = Number(e.target.dataset.idx);
+        const newTOSCheck = TOSCheck;
+        console.log(TOSCheck[idx])
+        if(TOSCheck[idx]===true) {
+            newTOSCheck[idx] = false;
+        }else {
+            newTOSCheck[idx] = true;
+        }
+        console.log(newTOSCheck[idx])
+        setTOSCheck(newTOSCheck);
+    }
+    const checkAllTOS = (e) => {
+        if(!allTOSCheck) {
+            setAllTOSCheck(true);
+            setTOSCheck([ true, true, true ])
+        }else {
+            setAllTOSCheck(false);
+        }
+    }
+
     const group = <InputGroup className="mb-3">
         <Form.Control
             placeholder="Recipient's username"
@@ -111,11 +134,18 @@ export default function SignUp () {
             </InputGroup>
         </Collapse>
 
-    <Card >
-        <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-            <Card.Text style={{ overflow:"scroll", width: '18rem', height:"19rem"}}>
+        <Card style={{ width: '20rem'}}>
+            <Card.Body>
+                <Card.Title>전체 이용약관 동의</Card.Title>
+                <Form.Check // prettier-ignore
+                    type="checkbox"
+                    label="동의합니다."
+                    checked= {allTOSCheck}
+                    onChange={checkAllTOS}
+                />
+                <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                
+                <Card.Text style={{ overflow:"scroll", width: '18rem', height:"10rem"}}>
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
             bulk of the card's content.
@@ -126,11 +156,93 @@ export default function SignUp () {
             bulk of the card's content.
             bulk of the card's content.
             bulk of the card's content.
-            </Card.Text>
-            <Card.Link href="#">Card Link</Card.Link>
-            <Card.Link href="#">Another Link</Card.Link>
-        </Card.Body>
-    </Card>
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+
+                </Card.Text>
+                <Form.Check // prettier-ignore
+                    type="checkbox"
+                    data-idx = "0"
+                    label="동의합니다."
+                    checked={TOSCheck[0]}
+                    onChange={checkTOS}
+                />
+                <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                
+                <Card.Text style={{ overflow:"scroll", width: '18rem', height:"10rem"}}>
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+
+                </Card.Text>
+                <Form.Check // prettier-ignore
+                    type="checkbox"
+                    data-idx = "1"
+                    label="동의합니다."
+                    checked={TOSCheck[1]}
+                    onChange={checkTOS}
+                />
+                <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                
+                <Card.Text style={{ overflow:"scroll", width: '18rem', height:"10rem"}}>
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+            bulk of the card's content.
+
+                </Card.Text>
+                <Form.Check 
+                    type="checkbox"
+                    data-idx = "2"
+                    label="동의합니다."
+                    checked={TOSCheck[2]}
+                    onChange={checkTOS}
+                />
+                <Card.Link href="#">Card Link</Card.Link>
+                <Card.Link href="#">Another Link</Card.Link>
+            </Card.Body>
+        </Card>
 
 
         
