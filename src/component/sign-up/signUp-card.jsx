@@ -1,12 +1,9 @@
-"use client"
-import { useState,useEffect } from "react"
 import { Card, Form } from "react-bootstrap"
 
-export default function TOSCard ( {Subtitle, text, id, TOSCheck, onTOSCheckChange} ) {
-    const [TOSCheckCard, setTOSCheckCard] = useState(TOSCheck)
+export default function TOSCard ( {Subtitle, text, id, onTOSCheckChange} ) {
 
     return <>
-    <Card.Subtitle className="mb-2 text-muted">{Subtitle}</Card.Subtitle>
+        <Card.Subtitle className="mb-2 text-muted">{Subtitle}</Card.Subtitle>
                 
         <Card.Text style={{ overflow:"scroll", width: '18rem', height:"5rem"}}>
             {text}
